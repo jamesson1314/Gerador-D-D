@@ -268,85 +268,182 @@ const DungeonMasterBrain = {
     
     // --- LORE BANKS ---
     data: {
-        themes: [
-            { id: "undead_crypt", name: "Cripta Esquecida", sensory: "cheiro de ozônio e pó antigo", hazard_type: "magic", enemies: "Esqueletos Arcanos e Spectros" },
-            { id: "feywild", name: "Floresta Crepuscular", sensory: "pólen brilhante que causa tontura", hazard_type: "charm", enemies: "Pixies Corrompidos e Feras Deslocadoras" },
-            { id: "underdark", name: "Abismo Subterrâneo", sensory: "escuridão que parece ter peso físico", hazard_type: "stealth", enemies: "Drow Exilados e Miconídeos" },
-            { id: "celestial_ruin", name: "Campo de Batalha Celestial", sensory: "luz cegante e cantos angelicais distorcidos", hazard_type: "radiant", enemies: "Anjos Caídos e Constructos de Luz" },
-            { id: "sunken_city", name: "Cidade Submersa (Seca)", sensory: "sal no ar e corais crescendo nas paredes", hazard_type: "physical", enemies: "Kuo-Toa e Elementais de Água" },
-            { id: "clockwork", name: "Fundição Mecânica", sensory: "calor de forja e tique-taque ensurdecedor", hazard_type: "trap", enemies: "Autômatos Defeituosos" },
-            { id: "vampire_ball", name: "Mansão Sanguínea", sensory: "música de cravo e cheiro de ferro", hazard_type: "social", enemies: "Vampiros e Lacaios Hipnotizados" }
-        ],
+  themes: [
+    { id: "undead_crypt", name: "Cripta Esquecida", sensory: "cheiro de ozônio e pó antigo", hazard_type: "magic", enemies: "Esqueletos Arcanos e Spectros" },
+    { id: "feywild", name: "Floresta Crepuscular", sensory: "pólen brilhante que causa tontura", hazard_type: "charm", enemies: "Pixies Corrompidos e Feras Deslocadoras" },
+    { id: "underdark", name: "Abismo Subterrâneo", sensory: "escuridão que parece ter peso físico", hazard_type: "stealth", enemies: "Drow Exilados e Miconídeos" },
+    { id: "celestial_ruin", name: "Campo de Batalha Celestial", sensory: "luz cegante e cantos angelicais distorcidos", hazard_type: "radiant", enemies: "Anjos Caídos e Constructos de Luz" },
+    { id: "sunken_city", name: "Cidade Submersa (Seca)", sensory: "sal no ar e corais crescendo nas paredes", hazard_type: "physical", enemies: "Kuo-Toa e Elementais de Água" },
+    { id: "clockwork", name: "Fundição Mecânica", sensory: "calor de forja e tique-taque ensurdecedor", hazard_type: "trap", enemies: "Autômatos Defeituosos" },
+    { id: "vampire_ball", name: "Mansão Sanguínea", sensory: "música de cravo e cheiro de ferro", hazard_type: "social", enemies: "Vampiros e Lacaios Hipnotizados" },
 
-        quests: [
-            { type: "Invasão e Destruição", verb: "destruir", goal: "um ritual profano em andamento" },
-            { type: "Resgate de Alto Risco", verb: "resgatar", goal: "o último herdeiro de uma linhagem extinta" },
-            { type: "Roubo (Heist)", verb: "roubar", goal: "os planos de invasão do inimigo sem ser notado" },
-            { type: "Escolta de Carga Viva", verb: "escoltar", goal: "uma entidade instável que explode se morrer" },
-            { type: "Investigação Forense", verb: "descobrir", goal: "quem assassinou o anjo guardião da cidade" },
-            { type: "Sobrevivência (Escape)", verb: "escapar", goal: "do domínio antes que os portais se fechem" },
-            { type: "Negociação de Paz", verb: "mediar", goal: "um tratado entre dois senhores da guerra rivais" }
-        ],
+    // +6 temas novos (inovadores)
+    { id: "mirror_labyrinth", name: "Laberinto dos Espelhos", sensory: "reflexos que cochicham memórias alheias", hazard_type: "illusion", enemies: "Reflexos Hostis e Caçadores de Alma" },
+    { id: "storm_archipelago", name: "Arquipélago Tempestivo", sensory: "ar salgado com faíscas elétricas", hazard_type: "environmental", enemies: "Sirenas de Raio e Elementais de Tempestade" },
+    { id: "glass_desert", name: "Deserto de Vidro", sensory: "areia que tinge a pele com brilho azul", hazard_type: "navigation", enemies: "Escorpiões Cristalinos e Viajantes-Espectro" },
+    { id: "dream_station", name: "Estação Onírica Abandonada", sensory: "ar com aroma de café frio e sonhos esquecidos", hazard_type: "mind", enemies: "Pesadelos Concretos e Vaporistas" },
+    { id: "rooted_tower", name: "Torre Enraizada", sensory: "madeira viva que pulsa como coração", hazard_type: "nature", enemies: "Entes Parasitados e Espíritos-Raiz" },
+    { id: "neon_slums", name: "Favelas Néon", sensory: "neon pegajoso e cheiro de óleo eletrônico", hazard_type: "social", enemies: "Gangues Cibernéticas e Drogados Arcânicos" 
+    }
+  ],
+  quests: [
+    { type: "Invasão e Destruição", verb: "destruir", goal: "um ritual profano em andamento" },
+    { type: "Resgate de Alto Risco", verb: "resgatar", goal: "o último herdeiro de uma linhagem extinta" },
+    { type: "Roubo (Heist)", verb: "roubar", goal: "os planos de invasão do inimigo sem ser notado" },
+    { type: "Escolta de Carga Viva", verb: "escoltar", goal: "uma entidade instável que explode se morrer" },
+    { type: "Investigação Forense", verb: "descobrir", goal: "quem assassinou o anjo guardião da cidade" },
+    { type: "Sobrevivência (Escape)", verb: "escapar", goal: "do domínio antes que os portais se fechem" },
+    { type: "Negociação de Paz", verb: "mediar", goal: "um tratado entre dois senhores da guerra rivais" },
 
-        hooks: [
-            "Todos os espelhos da cidade quebraram simultaneamente, revelando esta localização nos estilhaços.",
-            "Vocês acordam com uma marca arcana na pele que queima quando olham para o Norte.",
-            "Um dragão de cobre pousa, morrendo, e entrega um mapa manchado de sangue.",
-            "A comida de todos na taverna se transforma em cinzas, exceto a de vocês.",
-            "Uma criança cega aponta para o grupo e recita os pecados secretos de cada um.",
-            "O cadáver de um antigo aliado é encontrado segurando o item da missão."
-        ],
+    // +6 quests novas
+    { type: "Ritual Invertido", verb: "inverter", goal: "um ritual que transforma mortos em sementes de mundos" },
+    { type: "Caça ao Tempo", verb: "recuperar", goal: "um fragmento cronológico roubado por ladrões de memórias" },
+    { type: "Concurso de Facções", verb: "vencer", goal: "garantir apoio numa eleição de poder baseada em sabotagem" },
+    { type: "Forjar Aliança Improvável", verb: "aliar", goal: "um espírito ancestral que só confia em monstros" },
+    { type: "Reativação de Máquina", verb: "reparar", goal: "um artefato que mantém a cidade no campo de batalha" },
+    { type: "Julgamento do Herói", verb: "julg ar", goal: "provar a inocência de um ex-herói condenado por traição" 
+    }
+  ],
+  hooks: [
+    "Todos os espelhos da cidade quebraram simultaneamente, revelando esta localização nos estilhaços.",
+    "Vocês acordam com uma marca arcana na pele que queima quando olham para o Norte.",
+    "Um dragão de cobre pousa, morrendo, e entrega um mapa manchado de sangue.",
+    "A comida de todos na taverna se transforma em cinzas, exceto a de vocês.",
+    "Uma criança cega aponta para o grupo e recita os pecados secretos de cada um.",
+    "O cadáver de um antigo aliado é encontrado segurando o item da missão.",
 
-        npcs: {
-            descriptors: ["um nobre decaído", "um mago com pele de vidro", "um goblin erudito", "um espírito preso em uma armadura", "uma criança com voz de ancião", "um mercador de memórias"],
-            quirks: ["que fala rimando sem querer", "que levita 5cm do chão", "cujas tatuagens mudam de lugar", "que chora sangue mas sorri", "que coleciona dedos de inimigos"],
-            motivations: ["recuperar sua humanidade perdida", "pagar uma aposta feita com um diabo", "impedir que uma profecia se cumpra", "simplesmente ver o mundo queimar", "curar uma maldição de família"],
-            secrets: [
-                "está planejando trair o grupo no momento final.",
-                "não é quem diz ser; é o vilão disfarçado testando seus oponentes.",
-                "está morto há anos e é uma ilusão mantida por pura vontade.",
-                "precisa do item para reviver um tirano, não para destruí-lo.",
-                "não tem o dinheiro prometido, mas oferece sua própria alma."
-            ]
-        }, // <--- CORRIGIDO: Agora usa chaves } para fechar o objeto
+    // +6 hooks novas
+    "Um cometa passa riscando o céu e solta fragmentos que transformam palavras em ouro por uma hora.",
+    "Um bilhete codificado é costurado no forro da capa de cada personagem.",
+    "As estações mudaram de lugar: em pleno verão nevou sangue vermelho em uma rua só.",
+    "Um velho trovador insiste que vocês viram seu jovem idêntico fugindo da cidade na mesma noite.",
+    "As sombras da cidade formam uma rota que só vocês conseguem enxergar após beber de um poço.",
+    "Um sonho recorrente compartilha coordenadas que, surpreendentemente, batem com a mapa local."
+  ],
+  npcs: {
+    descriptors: [
+      "um nobre decaído",
+      "um mago com pele de vidro",
+      "um goblin erudito",
+      "um espírito preso em uma armadura",
+      "uma criança com voz de ancião",
+      "um mercador de memórias",
 
-        artifacts: {
-            bases: ["Anel", "Espada", "Manto", "Amuleto", "Cálice", "Escudo", "Grimório", "Orbe", "Coroa", "Bota"],
-            materials: ["de Ossos de Gigante", "de Vidro do Vazio", "da Pena de Fênix", "de Sangue Cristalizado", "de Luz Estelar", "de Sombras Sólidas", "de Ferro Infernal"],
-            powers: [
-                "permite reviver um aliado com 1 PV",
-                "concede imunidade a dano elemental",
-                "permite atravessar paredes sólidas",
-                "triplica todo dano causado por 1 minuto",
-                "lê os pensamentos de qualquer criatura",
-                "para o tempo por 6 segundos"
-            ],
-            curses: [
-                "mas atrai predadores espirituais que atacam durante o descanso.",
-                "mas o usuário envelhece 1d10 anos a cada uso.",
-                "mas o usuário perde a capacidade de falar a verdade.",
-                "mas causa terremotos involuntários ao redor do usuário.",
-                "mas drena 50% do ouro que o usuário toca.",
-                "mas sussurra segredos terríveis que impedem o sono."
-            ]
-        },
+      // +7 descriptors novas
+      "um carteiro que entrega cartas do futuro",
+      "uma enfermeira que costura emoções nos corpos",
+      "um caçador com olhos de pedra",
+      "um ferreiro que fala com raios",
+      "uma bibliotecária que guarda livros vivos",
+      "um moleiro que transforma sons em pó",
+      "um clarividente com mãos queimadas"
+    ],
+    quirks: [
+      "que fala rimando sem querer",
+      "que levita 5cm do chão",
+      "cujas tatuagens mudam de lugar",
+      "que chora sangue mas sorri",
+      "que coleciona dedos de inimigos",
 
-        hazards: [
-            { name: "Zona de Magia Morta", check: "Arcanismo (Int)", effect: "Magias falham 50% das vezes e itens mágicos se tornam mundanos.", solver: "Mago/Feiticeiro" },
-            { name: "Gravidade Caleidoscópica", check: "Acrobacia (Des)", effect: "O chão muda de direção a cada rodada. Queda causa dano massivo.", solver: "Ladino/Monge" },
-            { name: "Esporos da Loucura", check: "Constituição", effect: "Personagens veem aliados como monstros horríveis.", solver: "Clérigo/Druida" },
-            { name: "Enigmas do Guardião", check: "História/Investigação", effect: "Portas seladas que exigem sacrifício de memórias para abrir.", solver: "Bardo/Mago" },
-            { name: "Corredor de Lâminas Invisíveis", check: "Percepção", effect: "Dano cortante massivo para quem se move rápido demais.", solver: "Ranger/Ladino" }
-        ],
+      // +5 quirks novas
+      "que sempre responde às perguntas cantando",
+      "que troca de nome a cada hora",
+      "que tem um relógio preso ao peito que anda ao contrário",
+      "que mastiga lembranças como chiclete",
+      "que esquece a própria sombra quando acorda"
+    ],
+    motivations: [
+      "recuperar sua humanidade perdida",
+      "pagar uma aposta feita com um diabo",
+      "impedir que uma profecia se cumpra",
+      "simplesmente ver o mundo queimar",
+      "curar uma maldição de família",
 
-        twists: [
-            "O objetivo da missão, na verdade, é um selo que mantinha um mal maior preso. Ao interagir, o selo quebra.",
-            "O local é o interior de uma criatura titânica que acaba de acordar.",
-            "Uma facção rival chega exatamente ao mesmo tempo, propondo uma aliança temporária contra o Boss.",
-            "O NPC contratante aparece no final, revelando ter usado o grupo para limpar o caminho.",
-            "O tempo no local passa diferente; ao sair, 10 anos se passaram no mundo lá fora."
-        ]
-    },
+      // +4 motivations novas
+      "reunir os fragmentos de sua voz espalhados pelo mundo",
+      "provar que um mito é uma mentira para salvar pessoas",
+      "abrir um portal para uma casa que perdeu",
+      "vengar uma canção roubada de sua terra natal"
+    ],
+    secrets: [
+      "está planejando trair o grupo no momento final.",
+      "não é quem diz ser; é o vilão disfarçado testando seus oponentes.",
+      "está morto há anos e é uma ilusão mantida por pura vontade.",
+      "precisa do item para reviver um tirano, não para destruí-lo.",
+      "não tem o dinheiro prometido, mas oferece sua própria alma.",
+
+      // +4 secrets novas
+      "troca sonhos com outra pessoa todas as noites — e confundiu suas memórias.",
+      "foi contratado por um futuro alternativo para garantir que eventos aconteçam.",
+      "protege uma criança que é, secretamente, um ovo de criatura ancestral.",
+      "está silenciosamente tomando notas para um livro que condenará o grupo."
+    ]
+  },
+  artifacts: {
+    bases: [
+      "Anel", "Espada", "Manto", "Amuleto", "Cálice", "Escudo", "Grimório", "Orbe", "Coroa", "Bota",
+      // +2 bases novas
+      "Bracelete", "Lanterna"
+    ],
+    materials: [
+      "de Ossos de Gigante",
+      "de Vidro do Vazio",
+      "da Pena de Fênix",
+      "de Sangue Cristalizado",
+      "de Luz Estelar",
+      "de Sombras Sólidas",
+      "de Ferro Infernal",
+      // +2 materials novas
+      "de Névoa Congelada", "de Figmento (matéria dos sonhos)"
+    ],
+    powers: [
+      "permite reviver um aliado com 1 PV",
+      "concede imunidade a dano elemental",
+      "permite atravessar paredes sólidas",
+      "triplica todo dano causado por 1 minuto",
+      "lê os pensamentos de qualquer criatura",
+      "para o tempo por 6 segundos",
+      // +2 powers novas
+      "transforma uma palavra em ordem literal uma vez ao dia",
+      "invoca uma réplica ilusória do dono para distrair inimigos"
+    ],
+    curses: [
+      "mas atrai predadores espirituais que atacam durante o descanso.",
+      "mas o usuário envelhece 1d10 anos a cada uso.",
+      "mas o usuário perde a capacidade de falar a verdade.",
+      "mas causa terremotos involuntários ao redor do usuário.",
+      "mas drena 50% do ouro que o usuário toca.",
+      "mas sussurra segredos terríveis que impedem o sono.",
+      // +2 curses novas
+      "mas o item faz o usuário lembrar de TODOS os seus fracassos ao ser empunhado.",
+      "mas prende uma pequena parte da alma do usuário dentro do item."
+    ]
+  },
+  hazards: [
+    { name: "Zona de Magia Morta", check: "Arcanismo (Int)", effect: "Magias falham 50% das vezes e itens mágicos se tornam mundanos.", solver: "Mago/Feiticeiro" },
+    { name: "Gravidade Caleidoscópica", check: "Acrobacia (Des)", effect: "O chão muda de direção a cada rodada. Queda causa dano massivo.", solver: "Ladino/Monge" },
+    { name: "Esporos da Loucura", check: "Constituição", effect: "Personagens veem aliados como monstros horríveis.", solver: "Clérigo/Druida" },
+    { name: "Enigmas do Guardião", check: "História/Investigação", effect: "Portas seladas que exigem sacrifício de memórias para abrir.", solver: "Bardo/Mago" },
+    { name: "Corredor de Lâminas Invisíveis", check: "Percepção", effect: "Dano cortante massivo para quem se move rápido demais.", solver: "Ranger/Ladino" },
+
+    // +3 hazards novas
+    { name: "Campo de Notas Desafinadas", check: "Performance/Carisma", effect: "Sons alteram o humor e podem forçar falhas em testes sociais.", solver: "Bardo/Feiticeiro" },
+    { name: "Nevoeiro Cronofágico", check: "Constituição", effect: "Consumidores perdem pequenas parcelas de idade e habilidade temporariamente.", solver: "Feiticeiro/Clérigo" },
+    { name: "Rede de Ecos", check: "Investigação", effect: "Ações repetidas reverberam: cada falha aumenta as consequências da próxima rodada.", solver: "Ladino/Paladino" 
+    }
+  ],
+  twists: [
+    "O objetivo da missão, na verdade, é um selo que mantinha um mal maior preso. Ao interagir, o selo quebra.",
+    "O local é o interior de uma criatura titânica que acaba de acordar.",
+    "Uma facção rival chega exatamente ao mesmo tempo, propondo uma aliança temporária contra o Boss.",
+    "O NPC contratante aparece no final, revelando ter usado o grupo para limpar o caminho.",
+    "O tempo no local passa diferente; ao sair, 10 anos se passaram no mundo lá fora.",
+
+    // +1 twist nova
+    "O verdadeiro boss não é uma criatura — é um contrato que se auto-renegocia conforme as escolhas do grupo."
+  ]
+}
+
 
     // --- HELPER FUNCTIONS ---
     rand: function(arr) { return arr[Math.floor(Math.random() * arr.length)]; },
@@ -476,4 +573,5 @@ const DungeonMasterBrain = {
 </script>
 
 </body>
+
 </html>
