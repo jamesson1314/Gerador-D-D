@@ -71,7 +71,7 @@
         .subtitle { color: #ccc; font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1.1em; margin-top: 5px; }
 
         .controls {
-            background: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20 20.5V18H0v-2h20v-2H0v-2h20v-2H0V8h20V6H0V4h20V2H0V0h22v20h2V0h2v20h2V0h2v20h2V0h2v20h2V0h2v20h2V0h2v20h2V0h2v20h2v2H22v2h18v2H22v2h18v2H22v2h18v2H22v2h18v2H22v2h18v2H22v2h18v2H22v2h18v2H22v2h18v2H22v2h18v2H20v-2.5zM2 22v16h16V22H2zm14 14H4V24h12v12z' fill='%23281815' fill-opacity='0.4' fill-rule='evenodd'/%3E%3C/svg%3E"), rgba(93, 64, 55, 0.95);
+            background: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20 20.5V18H0v-2h20v-2H0v-2h20v-2H0V8h20V6H0V4h20V2H0V0h22v20h2V0h2v20h2V0h2v20h2V0h2v20h2V0h2v20h2V0h2v20h2V0h2v20h2V0h2v20h2V0h2v20h2V0h2v20h2v2H22v2h18v2H22v2h18v2H22v2h18v2H22v2h18v2H22v2h18v2H22v2h18v2H22v2h18v2H22v2h18v2H22v2h18v2H22v2h18v2H20v-2.5zM2 22v16h16V22H2zm14 14H4V24h12v12z' fill='%23281815' fill-opacity='0.4' fill-rule='evenodd'/%3E%3C/svg%3E"), rgba(93, 64, 55, 0.95);
             padding: 25px;
             border-radius: 10px;
             border: 1px solid var(--gold);
@@ -278,8 +278,8 @@ const DungeonMasterBrain = {
     { id: "vampire_ball", name: "Mansão Sanguínea", sensory: "música de cravo e cheiro de ferro", hazard_type: "social", enemies: "Vampiros e Lacaios Hipnotizados" },
 
     // +6 temas novos (inovadores)
-    { id: "mirror_labyrinth", name: "Laberinto dos Espelhos", sensory: "reflexos que cochicham memórias alheias", hazard_type: "illusion", enemies: "Reflexos Hostis e Caçadores de Alma" },
-    { id: "storm_archipelago", name: "Arquipélago Tempestivo", sensory: "ar salgado com faíscas elétricas", hazard_type: "environmental", enemies: "Sirenas de Raio e Elementais de Tempestade" },
+    { id: "mirror_labyrinth", name: "Labirinto dos Espelhos", sensory: "reflexos que cochicham memórias alheias", hazard_type: "illusion", enemies: "Reflexos Hostis e Caçadores de Alma" },
+    { id: "storm_archipelago", name: "Arquipélago Tempestuoso", sensory: "ar salgado com faíscas elétricas", hazard_type: "environmental", enemies: "Sirenas de Raio e Elementais de Tempestade" },
     { id: "glass_desert", name: "Deserto de Vidro", sensory: "areia que tinge a pele com brilho azul", hazard_type: "navigation", enemies: "Escorpiões Cristalinos e Viajantes-Espectro" },
     { id: "dream_station", name: "Estação Onírica Abandonada", sensory: "ar com aroma de café frio e sonhos esquecidos", hazard_type: "mind", enemies: "Pesadelos Concretos e Vaporistas" },
     { id: "rooted_tower", name: "Torre Enraizada", sensory: "madeira viva que pulsa como coração", hazard_type: "nature", enemies: "Entes Parasitados e Espíritos-Raiz" },
@@ -301,7 +301,7 @@ const DungeonMasterBrain = {
     { type: "Concurso de Facções", verb: "vencer", goal: "garantir apoio numa eleição de poder baseada em sabotagem" },
     { type: "Forjar Aliança Improvável", verb: "aliar", goal: "um espírito ancestral que só confia em monstros" },
     { type: "Reativação de Máquina", verb: "reparar", goal: "um artefato que mantém a cidade no campo de batalha" },
-    { type: "Julgamento do Herói", verb: "julg ar", goal: "provar a inocência de um ex-herói condenado por traição" 
+    { type: "Julgamento do Herói", verb: "julgar", goal: "provar a inocência de um ex-herói condenado por traição" 
     }
   ],
   hooks: [
@@ -442,7 +442,7 @@ const DungeonMasterBrain = {
     // +1 twist nova
     "O verdadeiro boss não é uma criatura — é um contrato que se auto-renegocia conforme as escolhas do grupo."
   ]
-}
+},
 
 
     // --- HELPER FUNCTIONS ---
